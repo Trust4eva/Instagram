@@ -42,18 +42,16 @@ class LoginViewController: UIViewController {
         let newUser = PFUser()
         
         newUser.username = usernameField.text
-        
         newUser.password = passwordField.text
-        newUser.signUpInBackground { (success: Bool, error: Error) in
+        
+        newUser.signUpInBackground { (success: Bool, error: Error?) in
             if success {
                 print("Yay")
             } else {
                 print(error?.localizedDescription)
-                if error?.code == 202 {
-                    print("Username is taken")
                 }
             }
         }
     }
     
-}
+
